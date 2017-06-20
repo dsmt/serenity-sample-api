@@ -6,8 +6,8 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <properties>
-        <serenity.version>1.2.3-rc.8</serenity.version>
-        <serenity.plugin.version>1.2.3-rc.8</serenity.plugin.version>
+        <serenity.version>1.4.0</serenity.version>
+        <serenity.plugin.version>1.4.0</serenity.plugin.version>
         <thread.count>32</thread.count>
     </properties>
     <dependencies>

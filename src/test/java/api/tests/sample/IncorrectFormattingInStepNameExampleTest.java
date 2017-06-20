@@ -1,6 +1,6 @@
-package api.tests.sample.five;
+package api.tests.sample;
 
-import api.steps.BasicAPISteps;
+import api.steps.ExampleSteps;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import org.junit.Test;
@@ -11,13 +11,14 @@ import org.junit.runner.RunWith;
  * @author Aleksei Starostin <starostin@truckerpath.com>
  */
 @RunWith(SerenityRunner.class)
-public class PageGet007Test {
+public class IncorrectFormattingInStepNameExampleTest {
 
     @Steps
-    BasicAPISteps basicAPISteps;
+    ExampleSteps exampleSteps;
 
     @Test
-    public void openPage() {
-        basicAPISteps.openPage();
+    public void formattingInStepNameExample() {
+        exampleSteps.stepWithItalicsInName();
+        exampleSteps.stepWitoutItalicsInName();
     }
 }
