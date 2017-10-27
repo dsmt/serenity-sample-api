@@ -2,23 +2,24 @@ package api.tests.sample;
 
 import api.steps.ExampleSteps;
 import net.serenitybdd.junit.runners.SerenityRunner;
+import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Steps;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 /**
- * @since Mar 31, 2017
- * @author Aleksei Starostin <starostin@truckerpath.com>
+ * @author Alex Starostin <dsmt42@gmail.com>
+ * @since Oct 27, 2017
  */
 @RunWith(SerenityRunner.class)
-public class IncorrectFormattingInStepNameExampleTest {
+public class FirstLineInResponseBodyIsAlwaysShiftedTest {
 
     @Steps
     ExampleSteps exampleSteps;
 
     @Test
-    public void formattingInStepNameExample() {
-        exampleSteps.stepWithItalicsInName();
-        exampleSteps.stepWitoutItalicsInName();
+    @Issue("#970")
+    public void firstLineInResponseBodyIsAlwaysShifted() {
+        exampleSteps.stepWithShiftedFirstLineInResponseBody();
     }
 }

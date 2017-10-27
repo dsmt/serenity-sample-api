@@ -2,8 +2,9 @@ package api.steps;
 
 import com.google.common.collect.ImmutableMap;
 import io.restassured.http.ContentType;
-import static net.serenitybdd.rest.SerenityRest.rest;
 import net.thucydides.core.annotations.Step;
+
+import static net.serenitybdd.rest.SerenityRest.rest;
 
 /**
  * @since Mar 31, 2017
@@ -11,18 +12,31 @@ import net.thucydides.core.annotations.Step;
  */
 public class ExampleSteps {
 
-    @Step(value = "--> _This_ <-- should be formatted in italics")
-    public void stepWithItalicsInName() {
-    }
+    private final String BASE_URL = "https://jsonplaceholder.typicode.com";
 
-    @Step(value = "While --> th_is and th_is <-- should not")
-    public void stepWitoutItalicsInName() {
-    }
-
-    public void stepWithJSONStringThatRiseFormattingError(String s) {
+    @Step
+    public void stepWithValidJsonString(String s) {
         rest()
                 .contentType(ContentType.JSON)
                 .body(ImmutableMap.of("string", s))
-                .post("https://echo.paw.cloud/");
+                .post(String.format("%s", BASE_URL));
+    }
+
+    @Step
+    public void stepWithJsonStringThatPreventsPrettyPrinting(String s) {
+        rest()
+                .contentType(ContentType.JSON)
+                .body(ImmutableMap.of("string", s))
+                .post(String.format("%s", BASE_URL));
+    }
+
+    @Step
+    public void stepWithHtmlSpecialCharInGetQuery(String htmlSpecialChar) {
+        rest().get(String.format("%s?foo=1&%s=2", BASE_URL, htmlSpecialChar));
+    }
+
+    @Step
+    public void stepWithShiftedFirstLineInResponseBody() {
+        rest().get(BASE_URL);
     }
 }

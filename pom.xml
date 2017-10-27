@@ -6,8 +6,8 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <properties>
-        <serenity.version>1.4.0</serenity.version>
-        <serenity.plugin.version>1.4.0</serenity.plugin.version>
+        <serenity.version>1.6.5</serenity.version>
+        <serenity.plugin.version>1.6.5</serenity.plugin.version>
         <thread.count>32</thread.count>
     </properties>
     <dependencies>
@@ -77,7 +77,7 @@
                         <include>**/*Suite.java</include>
                     </includes>
                     <encoding>UTF-8</encoding>
-                    <argLine>-Dfile.encoding=UTF-8</argLine>
+                    <argLine>-d64 -Xms1024m -Xmx1024m -Dfile.encoding=UTF-8</argLine>
                     <parallel>classes</parallel>
                     <threadCount>${thread.count}</threadCount>
                     <perCoreThreadCount>false</perCoreThreadCount>                    
